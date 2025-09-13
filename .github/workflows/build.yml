@@ -7,5 +7,23 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Say hello
-        run: echo "Hello, GitHub Actions!"
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Optionally set up your language/toolchain
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 'lts/*'
+      # - uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          echo "Install your deps here"
+          # e.g., npm ci / pip install -r requirements.txt / mvn -B -q -DskipTests package
+
+      - name: Build
+        run: |
+          echo "Run your build here"
+          # e.g., npm run build / python -m pytest / ./gradlew build
